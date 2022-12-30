@@ -22,8 +22,6 @@ jobs:
         run: ./gradlew fabric:build
       - name: Change Fabric location
         run: ./gradlew fabricDist
-      - name: Debug
-        run: ls -R -a
       - uses: Kir-Antipov/mc-publish@v3.2
         with:
           files-primary: dist/!(*-@(dev|sources|api))-fabric.jar
