@@ -17,18 +17,15 @@
 
 </div>
 
-## More Info
-Feel free to contribute to the project. Make sure to star the project to help out!
-
 ### My other optimization/bugfix mods:
 * [MoreCulling](https://github.com/fxmorin/moreculling) - Changes how culling is handled to improve performance
 * [MemoryLeakFix](https://github.com/fxmorin/memoryLeakFix) - self-explanatory
 * [Carpet-Fixes](https://github.com/fxmorin/carpet-fixes) - Largest Server-Side Bug fixing mod
 * [Blanket](https://github.com/BlanketMC/blanket-client-tweaks) - Client-side tweaks/fixes
 
----
+### More Info
 
-Feel free to contribute to the project!  
-I'm also fine if you use this mod in your modpacks, just make sure to mention it.
+Feel free to contribute to the project. Make sure to star the project to help out!  
+I'm also fine if you use this mod in your modpacks, just make sure to mention it.  
 
 However, I don't allow clients or other projects to merge this mod without permission, if you would like to use this mod in your client or another project please contact me.
