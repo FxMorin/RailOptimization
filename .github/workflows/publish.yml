@@ -20,6 +20,8 @@ jobs:
         run: chmod +x gradlew
       - name: Build Fabric with Gradle
         run: ./gradlew fabricDist
+      - name: Debug
+        run: ls -a
       - uses: Kir-Antipov/mc-publish@v3.2
         with:
           files-primary: dist/!(*-@(dev|sources|api))-fabric.jar
