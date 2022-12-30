@@ -19,9 +19,11 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x gradlew
       - name: Build Fabric with Gradle
+        run: ./gradlew fabric:build
+      - name: Change Fabric location
         run: ./gradlew fabricDist
       - name: Debug
-        run: ls -a
+        run: ls -R -a
       - uses: Kir-Antipov/mc-publish@v3.2
         with:
           files-primary: dist/!(*-@(dev|sources|api))-fabric.jar
@@ -43,13 +45,14 @@ jobs:
           retry-attempts: 2
           retry-delay: 10000
           fail-mode: skip
-
           loaders: |
             fabric
             quilt
       - name: Clear cache
         run: ./gradlew clearDist
       - name: Build Forge with Gradle
+        run: ./gradlew forge:build
+      - name: Change Forge location
         run: ./gradlew forgeDist
       - uses: Kir-Antipov/mc-publish@v3.2
         with:
@@ -72,5 +75,4 @@ jobs:
           retry-attempts: 2
           retry-delay: 10000
           fail-mode: skip
-
           loaders: forge
