@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "rail_optimization",
+  "version": "${version}",
+  "name": "FX's Rail Optimization",
+  "description": "A simple mod that makes powered/activator rails turning on/off up to 4x faster",
+  "authors": [
+    "FX - PR0CESS"
+  ],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ca.fxco.RailOptimization.fabric.RailOptimizationFabric"
+    ]
+  },
+  "mixins": [
+    "rail_optimization.mixins.json",
+    "rail_optimization-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "minecraft": ">=1.19.3"
+  }
+}

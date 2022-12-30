@@ -1,0 +1,74 @@
+name: Publish Fabric Artifacts
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 17
+          cache: 'gradle'
+      - name: Grant execute permission to gradlew
+        run: chmod +x gradlew
+      - name: Build Fabric with Gradle
+        run: ./gradlew fabricDist
+      - uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          files-primary: dist/!(*-@(dev|sources|api))-fabric.jar
+
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-files-secondary: dist/*-@(dev|sources)-fabric.jar
+
+          modrinth-id: htPoettw
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-featured: true
+          modrinth-files-secondary: dist/*-@(sources)-fabric.jar
+
+          curseforge-id: 783313
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-files-secondary: dist/*-@(sources)-fabric.jar
+
+          version-type: release
+          version-resolver: releases
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: skip
+
+          loaders: |
+            fabric
+            quilt
+      - name: Clear cache
+        run: ./gradlew clearDist
+      - name: Build Forge with Gradle
+        run: ./gradlew forgeDist
+      - uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          files-primary: dist/!(*-@(dev|sources|api))-forge.jar
+
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-files-secondary: dist/*-@(dev|sources)-forge.jar
+
+          modrinth-id: htPoettw
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-featured: true
+          modrinth-files-secondary: dist/*-@(sources)-forge.jar
+
+          curseforge-id: 783313
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-files-secondary: dist/*-@(sources)-*forge.jar
+
+          version-type: release
+          version-resolver: releases
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: skip
+
+          loaders: forge
