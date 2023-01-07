@@ -23,6 +23,12 @@
 * [Carpet-Fixes](https://github.com/fxmorin/carpet-fixes) - Largest Server-Side Bug fixing mod
 * [Blanket](https://github.com/BlanketMC/blanket-client-tweaks) - Client-side tweaks/fixes
 
+---
+
+<a href="https://client.kinetichosting.net/aff.php?aff=42"><img alt="Kinetic Hosting" src="https://fxco.ca/assets/Mod_Banner.png"></a>
+
+---
+
 ### More Info
 
 Feel free to contribute to the project. Make sure to star the project to help out!  
