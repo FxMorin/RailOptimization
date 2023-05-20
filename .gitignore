@@ -119,3 +119,7 @@ run/
 
 # Avoid distribution directory
 dist/
+
+bin
+build/*
+.vscode/*
