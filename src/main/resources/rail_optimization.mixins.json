@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "ca.fxco.RailOptimization.fabric.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "PoweredRailBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
